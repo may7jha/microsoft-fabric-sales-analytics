@@ -14,21 +14,72 @@ The project follows a medallion architecture and uses a dimensional data model t
 * Understand product category contributions to revenue.
 * Demonstrate role-based access to regional sales data.
 
-## 🏗️ Solution Architecture
+## 🏗️ Microsoft Fabric Architecture
 
-The solution follows a medallion architecture:
+This project explores an end-to-end sales analytics workflow using Microsoft Fabric and Power BI, following a medallion architecture and dimensional modeling principles.
 
-1. **Bronze Layer:** Raw sales data ingestion.
-2. **Silver Layer:** Data cleaning and transformation.
-3. **Gold Layer:** Curated data prepared for analytical reporting.
+### Data Flow
 
-The analytical model uses a fact-and-dimension structure to support reporting.
+```text
+Sales CSV Dataset
+       |
+       v
+Data Pipeline
+(Data Ingestion)
+       |
+       v
+Bronze Layer — Raw Data
+       |
+       v
+Silver Layer — Cleaned and Transformed Data
+       |
+       v
+Gold Layer — Curated Analytical Data
+       |
+       v
+Fabric Warehouse
+(Fact and Dimension Tables)
+       |
+       v
+Power BI Semantic Model
+       |
+       v
+Interactive Sales Analytics Dashboard
+```
 
-**High-level workflow:**
+*Note: This diagram represents the intended logical workflow. The actual implementation may differ depending on the Fabric components configured in the workspace.*
 
-Raw Sales Data → Bronze → Silver → Gold → Analytical Model → Power BI Dashboard
+### Microsoft Fabric Components
 
-Microsoft Fabric components and the exact implementation details should be documented according to the artifacts available in the project workspace.
+| Component                 | Purpose                                                              |
+| ------------------------- | -------------------------------------------------------------------- |
+| Data Pipeline             | Orchestrates data ingestion and movement between stages.             |
+| Lakehouse                 | Provides a lake-centric environment for storing and processing data. |
+| Bronze Layer              | Preserves the ingested source data.                                  |
+| Silver Layer              | Supports data cleaning, validation, and transformation.              |
+| Gold Layer                | Contains curated data prepared for analytical use.                   |
+| Warehouse                 | Supports SQL-based analytical queries and dimensional modeling.      |
+| Fact and Dimension Tables | Organize business events and descriptive attributes for analysis.    |
+| Semantic Model            | Defines relationships, measures, and business logic for reporting.   |
+| Power BI Report           | Presents sales KPIs and interactive business insights.               |
+
+### Dimensional Modeling
+
+The analytical model is designed around a fact-and-dimension approach to support reporting across sales, products, regions, and time.
+
+The final table structure and relationships should reflect the tables actually created in the Fabric environment.
+
+### Security and Governance
+
+Row-level security (RLS) can restrict access to sales data based on user roles or regional assignments. Security configurations should be tested before the report is shared.
+
+### Implementation Evidence
+
+Screenshots of the Fabric workspace, pipeline, Lakehouse tables, Warehouse, semantic model, and Power BI report can be added to the `Screenshots/` folder to demonstrate the implementation.
+
+Only components that have actually been created and tested should be described as completed project features.
+
+
 
 ## 📊 Dashboard Features
 
